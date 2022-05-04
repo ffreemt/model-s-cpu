@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "model-s"
+name = "hf-model-s"
 version = "0.1.0"
 description = "model-s served from hf spaces"
 authors = ["ffreemt"]
