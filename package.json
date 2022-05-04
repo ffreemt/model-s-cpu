@@ -1,0 +1,21 @@
+{
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w model_s -x pytest tests",
+        "pyright": "nodemon -w model_s -w .venv -e .py -x pyright model_s tests",
+        "pytest": "nodemon -w tests -w model_s -e .py -x pytest tests model_s",
+        "style": "nodemon -w model_s -w tests -x \"black tests model_s && python -m flake8\"",
+        "docstyle": "nodemon -w model_s -w tests -x pydocstyle --convention=google tests model_s",
+        "pylint": "nodemon -w model_s -e .py -x pylint model_s",
+        "test:model_s": "nodemon -w tests -e .py -x pytest -k model_s tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests model_s",
+        "flake8": "flake8 tests model_s",
+        "pflake8": "pflake8 tests model_s",
+        "pep257": "pep257 tests model_s",
+        "final": "run-s docstyle black flake8 pytest"
+    }
+}
