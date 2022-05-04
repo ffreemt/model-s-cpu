@@ -28,3 +28,5 @@ jobs:
           # poetry run pytest
       - name: Run pytest
         run: poetry run pytest tests
+      - name: Run poetry build
+        run: poetry build
