@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hf-model-s-cpu"
-version = "0.1.0"
+version = "0.1.1"
 description = "model-s served from hf spaces using torch+cpu"
 authors = ["ffreemt"]
 license = "MIT"
