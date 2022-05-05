@@ -1,4 +1,4 @@
-name: model-s
+name: model-s-cpu
 
 # The build section defines how to build the images of
 # your development environment
@@ -24,7 +24,7 @@ name: model-s
 # The dev section defines how to activate a development container
 # More info: https://www.okteto.com/docs/reference/manifest/#dev
 dev:
-  model-s:
+  model-s-cpu:
     # image: okteto/dev:latest
     # image: python:3.8.13-bullseye
     # image: simbachain/poetry-3.8

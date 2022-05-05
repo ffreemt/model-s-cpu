@@ -1,12 +1,17 @@
 """Load model_s."""
-# pylint: disable=invalid-name, wrong-import-position, wrong-import-order, duplicate-code
+# pylint: disable=invalid-name, wrong-import-position, wrong-import-order, duplicate-code, unused-import
 
 from pathlib import Path
+from install import install
 
 from alive_progress import alive_bar
 from huggingface_hub import hf_hub_url, cached_download  # hf_hub_download,
 import joblib
 from logzero import logger
+try:
+    import sentence_transformers  # noqa
+except ModuleNotFoundError:
+    install("sentence-transformers", install_options=["--no-deps"])
 
 
 def model_s(alive_bar_on=True):
