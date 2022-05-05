@@ -11,6 +11,18 @@ pip install git+https://github.com/ffreemt/model-s-cpu
 # git clone https://github.com/ffreemt/model-s-cpu && cd model-s-cpu
 ```
 
+## Install `sentence-transformers`
+Simply
+```bash
+pip install sentence-transformers
+```
+Or
+```bash
+pip install --no-cache-dir torch==1.8.0+cpu -f https://download.pytorch.org/whl/torch_stable.html  # adjust according to os/python
+pip install transformers tqdm numpy scikit-learn nltk sentencepiece pillow
+pip install --no-deps sentence-transformers
+```
+
 ## Use it
 ```python
 from hf_model_s_cpu import model_s
