@@ -31,6 +31,8 @@ pip install transformers tqdm numpy scikit-learn nltk sentencepiece pillow
 pip install --no-deps sentence-transformers
 ```
 
+Refer also to the corresponding actions in [the workflows](https://github.com/ffreemt/model-s-cpu/blob/main/.github/workflows/routine-tests.yml)
+
 ## Use it
 ```python
 from hf_model_s_cpu import model_s
