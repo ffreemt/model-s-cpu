@@ -10,8 +10,8 @@ jobs:
       matrix:
         python-version: [3.8]
         poetry-version: [1.1.2]
-        # os: [ubuntu-18.04, macos-latest, windows-latest]
-        os: [ubuntu-18.04]
+        os: [ubuntu-18.04, macos-latest, windows-latest]
+        # os: [ubuntu-18.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +24,16 @@ jobs:
       - name: Install packages
         run: |
           poetry install  # --no-dev
-          poetry run pip install --no-cache-dir torch==1.8.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+      - name: Extra install for linux and non-linux
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            poetry run pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cpu
+          else
+            poetry run pip install torch torchvision
+          fi
+        shell: bash
+      - name: Extra install common
+        run: |
           poetry run pip install transformers tqdm numpy scikit-learn nltk sentencepiece pillow
           poetry run pip install --no-deps sentence-transformers
       - name: Run flake8

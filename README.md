@@ -16,9 +16,17 @@ Simply
 ```bash
 pip install sentence-transformers
 ```
-Or
+Or, for example (select torch according to os and python, the `torch+cpu` and `--no-deps` trick will save a lot of diskspace in some use cases [think of docker or k8s])
 ```bash
 pip install --no-cache-dir torch==1.8.0+cpu -f https://download.pytorch.org/whl/torch_stable.html  # adjust according to os/python
+
+# or per https://pytorch.org/
+# linux: pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+# windows: pip3 install torch torchvision torchaudio
+# macos: pip3 install torch torchvision torchaudio
+```
+
+```bash
 pip install transformers tqdm numpy scikit-learn nltk sentencepiece pillow
 pip install --no-deps sentence-transformers
 ```
@@ -26,5 +34,7 @@ pip install --no-deps sentence-transformers
 ## Use it
 ```python
 from hf_model_s_cpu import model_s
+model = model_s()
 
+vec = model.encode(["a", "测试"])  # assert vec.shape == (2, 512)
 ```

@@ -15,7 +15,17 @@ except ModuleNotFoundError:
 
 
 def model_s(alive_bar_on=True):
-    """Load local model_s if present, else fetch from hf.co."""
+    """Load local model_s if present, else fetch from hf.co.
+
+    Args:
+        alive_bar_on: alive_bar
+    Returns:
+        a model for model.encode(["a", "测试"])
+
+    Example:
+        model = model_s()
+        vec = model.encode(["a",  "测试"])  # vec.shape: (2, 512)
+    """
     file_loc = Path(__file__).absolute().with_name("model_s")
     if Path(file_loc).exists():
         # raise Exception(f"File {file_loc} does not exist.")
