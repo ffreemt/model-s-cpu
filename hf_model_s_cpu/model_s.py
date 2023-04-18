@@ -40,7 +40,7 @@ def model_s(alive_bar_on=True):
                 # model_s = pickle.load(open(file_loc, "rb"))
                 progress_bar()  # pylint: disable=not-callable
         else:
-            logger.info("Loading local model, it may take a while")
+            logger.info("Loading local model, it may take a while...")
             model = joblib.load(file_loc)
 
         return model
